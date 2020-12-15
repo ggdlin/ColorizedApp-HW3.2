@@ -16,9 +16,14 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             Color(#colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1))
+                .ignoresSafeArea()
             
             VStack {
-                ColorView(red: red / 255, green: green / 255, blue: blue / 255)
+                ColorView(
+                    red: red / 255,
+                    green: green / 255,
+                    blue: blue / 255
+                )
                 
                 SliderWithValues(value: $red)
                 SliderWithValues(value: $green)

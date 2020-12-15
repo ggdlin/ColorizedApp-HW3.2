@@ -10,15 +10,15 @@ import SwiftUI
 struct SliderWithValues: View {
     @Binding var value: Double
     @State private var showAlert = false
-    let numberFormatter = NumberFormatter()
+    private let numberFormatter = NumberFormatter()
     
     var body: some View {
         HStack {
-            Text(String(lround(value)))
+            Text("\(lround(value))")
                 .foregroundColor(.white)
                 .frame(width: 35)
             
-            Slider(value: $value, in: 0...255)
+            Slider(value: $value, in: 0...255, step: 1)
             
             TextField("", value: $value, formatter: numberFormatter, onCommit: {
                 

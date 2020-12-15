@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct ColorView: View {
-    var red: Double
-    var green: Double
-    var blue: Double
+    let red: Double
+    let green: Double
+    let blue: Double
     
     var body: some View {
         Color(red: red, green: green, blue: blue)
             .frame( height: 120)
-            .clipShape(RoundedRectangle(cornerRadius: 20, style: .circular))
-            .overlay(RoundedRectangle(cornerRadius: 20, style: .circular)
+            .cornerRadius(20)
+            .overlay(RoundedRectangle(cornerRadius: 20, style: .continuous)
                         .stroke(Color.white, lineWidth: 4))
             .padding(30)
     }
