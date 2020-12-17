@@ -13,7 +13,7 @@ struct ColorView: View {
     let blue: Double
     
     var body: some View {
-        Color(red: red, green: green, blue: blue)
+        Color(red: red / 255, green: green / 255, blue: blue / 255)
             .frame( height: 120)
             .cornerRadius(20)
             .overlay(RoundedRectangle(cornerRadius: 20, style: .continuous)

@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct SliderWithValues: View {
+    
     @Binding var value: Double
     @State private var showAlert = false
-    private let numberFormatter = NumberFormatter()
+    let color: Color
     
     var body: some View {
         HStack {
@@ -19,8 +20,9 @@ struct SliderWithValues: View {
                 .frame(width: 35)
             
             Slider(value: $value, in: 0...255, step: 1)
+                .accentColor(color)
             
-            TextField("", value: $value, formatter: numberFormatter, onCommit: {
+            TextField("", value: $value, formatter: NumberFormatter(), onCommit: {
                 
                 if !(0.0...255.0).contains(value) {
                     value = 0
@@ -37,6 +39,7 @@ struct SliderWithValues: View {
         }
         .padding(EdgeInsets(top: 4, leading: 16, bottom: 4, trailing: 16))
     }
+    
 }
 
 struct SliderWithValues_Previews: PreviewProvider {
@@ -44,7 +47,7 @@ struct SliderWithValues_Previews: PreviewProvider {
         ZStack {
             Color(.gray)
             
-            SliderWithValues(value: Binding.constant(50))
+            SliderWithValues(value: Binding.constant(50), color: .red)
         }
         
     }
